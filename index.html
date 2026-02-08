@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <title>Arithmetic Winter School</title>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
@@ -90,6 +91,19 @@ body {font-size:16px;}
 @media (max-width: 600px){
   .nav-btn{ width:46px; height:46px; font-size:36px; }
 }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 auto;
+}
+
 </style>
 </head>
 
@@ -104,9 +118,13 @@ body {font-size:16px;}
      class="w3-button w3-hide-large w3-display-topleft"
      style="width:100%;font-size:22px">Close Menu</a>
 
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Arithmetic<br>Winter School</b></h3>
+  <div class="w3-container w3-padding-64">
+  <div class="brand">
+    <img src="favicon.svg" alt="AWS logo">
+    <h3 class="w3-margin-0"><b>Arithmetic<br>Winter School</b></h3>
   </div>
+</div>
+
 
   <div style="margin-left:-16px; margin-right:-16px;" class="imgwrap">
     <img src="koy.png" alt="" style="display:block; width:100%; max-width:300px;">
