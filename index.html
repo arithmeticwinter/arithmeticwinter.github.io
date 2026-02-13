@@ -10,98 +10,139 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
 <style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
 
-@media (max-width: 992px){
-  body { padding-top: 72px; }
-  .w3-main { margin-left: 0 !important; margin-right: 0 !important; }
-  .w3-container { scroll-margin-top: 80px; }
+/* =========================
+   Base
+   ========================= */
+body, h1, h2, h3, h4, h5 { font-family: "Poppins", sans-serif; }
+body { font-size: 16px; }
+
+.w3-half img{
+  margin-bottom: -6px;
+  margin-top: 16px;
+  opacity: 0.8;
+  cursor: pointer;
 }
+.w3-half img:hover{ opacity: 1; }
 
-/* foto bloğunu overlay'li yap */
-#mySidebar .imgwrap{ position:relative; }
+/* =========================
+   Sidebar image overlay
+   ========================= */
+#mySidebar .imgwrap{ position: relative; }
+
 #mySidebar .imgwrap::after{
-  content:"";
-  position:absolute; inset:0;
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(157,175,191,0.35);
 }
 
 /* nav ile foto geçişi daha yumuşak olsun */
 #mySidebar .imgwrap::before{
-  content:"";
-  position:absolute; left:0; right:0; top:0; height:28px;
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 28px;
   background: linear-gradient(to bottom, rgba(157,175,191,1), rgba(157,175,191,0));
 }
-#mySidebar .imgwrap img{ display:block; width:100%; }
 
+#mySidebar .imgwrap img{
+  display: block;
+  width: 100%;
+}
+
+/* =========================
+   Content blocks
+   ========================= */
 .lectures{
-  padding:14px 18px;
-  background:#fff;
-}
-.years{
-  h1,hr, h6 {color:#1D2D6C}
+  padding: 14px 18px;
+  background: #fff;
 }
 
-/* yatay kaydırmalı foto şeridi */
+.years h1,
+.years hr,
+.years h6{
+  color: #1D2D6C;
+}
+
+
+/* =========================
+   Photo strip
+   ========================= */
 .photo-grid{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  overflow-y:hidden;
-  flex-wrap:nowrap;
-  padding:8px 2px;
-  -webkit-overflow-scrolling:touch;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  padding: 8px 2px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .photo{
   flex: 0 0 140px;
   height: 100px;
   object-fit: cover;
-  border-radius:14px;
-  display:block;
-  cursor:pointer;
+  border-radius: 14px;
+  display: block;
+  cursor: pointer;
 }
 
-@media (max-width: 600px){
-  .photo{ flex-basis: 120px; height: 90px; }
+/* =========================
+   Modal
+   ========================= */
+#modal01{
+  padding-top: 0 !important;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 /* modal navigation buttons */
 .nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  border:none;
-  background:rgba(0,0,0,0.45);
-  color:#fff;
-  font-size:42px;
-  line-height:42px;
-  width:54px;
-  height:54px;
-  border-radius:999px;
-  cursor:pointer;
-  user-select:none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 42px;
+  line-height: 42px;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
 }
-.nav-prev{ left:18px; }
-.nav-next{ right:18px; }
+.nav-prev{ left: 18px; }
+.nav-next{ right: 18px; }
 
-@media (max-width: 600px){
-  .nav-btn{ width:46px; height:46px; font-size:36px; }
-}
-
-.brand {
+/* =========================
+   Brand header
+   ========================= */
+.brand{
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
-.brand img {
+.brand img{
   width: 50px;
   height: 50px;
   flex: 0 0 auto;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 992px){
+  body{ padding-top: 72px; }
+  .w3-main{ margin-left: 0 !important; margin-right: 0 !important; }
+  .w3-container{ scroll-margin-top: 80px; }
+}
+
+@media (max-width: 600px){
+  .photo{ flex-basis: 120px; height: 90px; }
+  .nav-btn{ width: 46px; height: 46px; font-size: 36px; }
 }
 
 </style>
@@ -125,7 +166,6 @@ body {font-size:16px;}
   </div>
 </div>
 
-
   <div style="margin-left:-16px; margin-right:-16px;" class="imgwrap">
     <img src="koy.png" alt="" style="display:block; width:100%; max-width:300px;">
   </div>
@@ -142,6 +182,7 @@ body {font-size:16px;}
   </div>
 </nav>
 
+
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background:#9DAFBF">
   <a href="javascript:void(0)" class="w3-button w3-margin-right" style="color:#1D2D6C" onclick="w3_open()">☰</a>
@@ -152,25 +193,20 @@ body {font-size:16px;}
 <div class="w3-overlay w3-hide-large" onclick="w3_close()"
      style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<!-- !PAGE CONTENT! -->
+<!-- PAGE CONTENT -->
+
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Top of the page -->
 
   <div class="w3-container" style="margin-top:80px" id="home">
     <p>
-      Arithmetic Winter School is held at Nesin Mathematics Village and consists of several lecture series centered around a theme that changes each year. 
-      Topics range across number theory and arithmetic: from additive and analytic methods to additive combinatorics, and algebraic geometry. 
+      Arithmetic Winter School is held at Nesin Mathematics Village and consists of several lecture series centered around a theme that changes each year.
+      Topics range across number theory and arithmetic: from additive and analytic methods to additive combinatorics, and algebraic geometry.
     </p>
   </div>
 
-
-
-
-
-
-
-
-
-
+  <!-- 2026 -->
 
   <div class="w3-container years" style="margin-top:80px" id="2026">
     <h1 class="w3-xxxlarge"><b>2026</b></h1>
@@ -215,7 +251,7 @@ body {font-size:16px;}
       <p> <b> <a href="https://tr.linkedin.com/in/erdem-efe-delen-340352206" target="_blank">Erdem Efe Delen </a>  </b> - Boğaziçi University</p>
       <p><b>Abstract:</b></p>
     </div>
-    
+
     <h1 class="w3-xlarge"><b>Poster Session</b></h1>
         <div class="lectures">
       <h6><b>Zeta Functions in Algebraic Structures </b><a href="2026-du.pdf" target="_blank"> pdf</a></h6>
@@ -250,13 +286,7 @@ body {font-size:16px;}
     </div>
   </div>
 
-
-
-
-
-
-
-
+  <!-- 2025 -->
 
   <div class="w3-container years" style="margin-top:80px" id="2025">
     <h1 class="w3-xxxlarge"><b>2025</b></h1>
@@ -309,13 +339,13 @@ body {font-size:16px;}
       <p> <b>Begüm Gülgen </b> - İzmir Institute of Technology </p>
       <p><b>Abstract: </b>
           This study outlines the mathematical framework surrounding the Birch and Swinnerton-Dyer (BSD) Conjecture and examines
-        the connection between the algebraic structure of elliptic curves and the analytic behavior of their associated L-functions. 
-        Beginning with the Weierstrass normal form and the geometric group law, which makes the set of rational points E(ℚ) 
+        the connection between the algebraic structure of elliptic curves and the analytic behavior of their associated L-functions.
+        Beginning with the Weierstrass normal form and the geometric group law, which makes the set of rational points E(ℚ)
         a finitely generated abelian group by Mordell’s Theorem, the work explains how the behavior of the curve over finite fields
         𝔽<sub>p</sub>—bounded by Hasse’s Theorem—is connected to the L-function L(E, s). It then discusses the Wiles–Taylor theorem,
         which ensures the analytic continuation of L(E, s) to the entire complex plane, allowing a Taylor expansion around s = 1.
-        Birch and Swinnerton-Dyer conjectured that the algebraic rank of the curve equals its analytic rank—defined as the order of 
-        vanishing of the L-function at s = 1—thus providing a potential criterion for determining whether the number of rational 
+        Birch and Swinnerton-Dyer conjectured that the algebraic rank of the curve equals its analytic rank—defined as the order of
+        vanishing of the L-function at s = 1—thus providing a potential criterion for determining whether the number of rational
         solutions of a given cubic equation of two variables is finite or infinite.
     </p>
     </div>
@@ -331,16 +361,14 @@ body {font-size:16px;}
     </div>
   </div>
 
-
-
-
+  <!-- 2024 -->
 
   <div class="w3-container years" style="margin-top:80px" id="2024">
     <h1 class="w3-xxxlarge"><b>2024</b></h1>
     <hr style="width:50px;border:5px solid" class="w3-round">
     <p> The lectures collectively highlight a common theme: methods for detecting and proving unavoidable structure in arithmetic
       and combinatorial settings. Different tools—analytic, combinatorial, probabilistic, ergodic/topological,
-      and algebraic—are presented as complementary ways to quantify “randomness vs. structure,” to force the existence of patterns 
+      and algebraic—are presented as complementary ways to quantify “randomness vs. structure,” to force the existence of patterns
       under density assumptions, and to study how arithmetic phenomena are distributed.</p>
     <a href="https://nesinkoyleri.org/events/2024-aritmetik-kis-kampi/" target="_blank">Click for the program webpage in NMK website.</a>
       <br><br>
@@ -350,48 +378,45 @@ body {font-size:16px;}
       <p><b>Abstract:</b> We introduce the circle method and as an application we prove Roth’s theorem on arithmetic progressions.</p>
       <a href="2024-hg.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
+
     <div class="lectures">
       <h6><b> Szemerédi’s Regularity Lemma</b></h6>
-      <p> <b> <a href="https://www.researchgate.net/profile/Ahmet-Batal" target="_blank">Ahmet Batal</a></b>  <i> & </i>   <b> <a href="https://www.researchgate.net/profile/Mustafa-Kutlu-3"  target="_blank">Mustafa Kutay Kutlu</a> </b>
-  - İzmir Institute of Technology</p>
+      <p> <b> <a href="https://www.researchgate.net/profile/Ahmet-Batal" target="_blank">Ahmet Batal</a></b>  <i> & </i>   <b> <a href="https://www.researchgate.net/profile/Mustafa-Kutlu-3"  target="_blank">Mustafa Kutay Kutlu</a> </b> - İzmir Institute of Technology</p>
       <p><b>Abstract:</b> Szemerédi’s regularity lemma, triangle removal lemma, Roth’s theorem.</p>
       <a href="2024-ab.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
-    
+
     <div class="lectures">
       <h6><b> Probabilistic Number Theory</b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Doga-Sertbas-2" target="_blank">Doğa Can Sertbaş</a>  </b> - İstinye University </p>
       <p><b>Abstract:</b> Basic Ramsey theory, lower bounds for Ramsey and van der Waerden numbers, basic probability theory, sum-free sets </p>
       <a href="2024-ds.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
-    
+
       <div class="lectures">
       <h6><b> Ramsey Theory and Ultrafilters </b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Sadik-Eyidogan" target="_blank">Sadık Eyidoğan</a>  </b> - Çukurova University </p>
-      <p><b>Abstract:</b> We introduce the space of ultrafilters βN and its topological properties. We also explain limits along ultrafilters. 
-        Then, we recall the relevant notions from Ramsey theory and give a proof  that all partition regular properties correspond to ultrafilters. 
-        We define the addition of ultrafilters, which turns the space of ultrafilters βN into a left topological semigroup. 
+      <p><b>Abstract:</b> We introduce the space of ultrafilters βN and its topological properties. We also explain limits along ultrafilters.
+        Then, we recall the relevant notions from Ramsey theory and give a proof  that all partition regular properties correspond to ultrafilters.
+        We define the addition of ultrafilters, which turns the space of ultrafilters βN into a left topological semigroup.
         Finally, we will collect information about the ideals of the semigroup βN to the point that we can give a proof of van der Waerden’s theorem.</p>
       <a href="2024-se.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
+
     <div class="lectures">
-      <h6><b>  The Chebotarev Density Theorem </b></h6>      
+      <h6><b>  The Chebotarev Density Theorem </b></h6>
       <p> <b>  <a href="https://www.researchgate.net/profile/Cagatay_Altuntas" target="_blank">Çağatay Altuntaş</a> </b> - İstanbul Technical University </p>
       <p><b>Abstract:</b> We begin with a short introduction to algebraic number theory, outlining the main concepts needed to study arithmetic phenomena
-        in number fields. Particular attention is given to Galois extensions and the behavior of prime ideals. We then formulate the 
+        in number fields. Particular attention is given to Galois extensions and the behavior of prime ideals. We then formulate the
         Chebotarev Density Theorem and explain its central role in understanding how primes are distributed across Galois conjugacy classes. </p>
     </div>
-    
+
     <div class="lectures">
-      <h6><b>  Extremal Graph Theory </b></h6>      
+      <h6><b>  Extremal Graph Theory </b></h6>
       <p> <b>  <a href="https://www.umu.se/en/staff/azem-adibelli/" target="_blank">Azem Berivan Adibelli</a> </b> - İzmir Institute of Technology </p>
       <p><b>Abstract:</b> </p>
     </div>
-    
+
     <br><br>
     <div class="photo-grid">
       <img class="photo" src="2024-1.jpeg" onclick="onClick(this)" alt="">
@@ -401,16 +426,13 @@ body {font-size:16px;}
     </div>
   </div>
 
-  
-  
-  
-  
+  <!-- 2023 -->
 
   <div class="w3-container years" style="margin-top:80px" id="2023">
     <h1 class="w3-xxxlarge"><b>2023</b></h1>
     <hr style="width:50px;border:5px solid" class="w3-round">
-    <p>The lectures give a brief tour of several standard methods in number theory. 
-      They touch on additive questions, sieve ideas, and basic Fourier-analytic tools, 
+    <p>The lectures give a brief tour of several standard methods in number theory.
+      They touch on additive questions, sieve ideas, and basic Fourier-analytic tools,
       and indicate how these viewpoints relate to questions about primes and distribution.</p>
     <a href="https://nesinkoyleri.org/events/2023-aritmetik-kis-okulu/" target="_blank">Click for the program webpage in NMK website.</a>
       <br><br>
@@ -420,21 +442,21 @@ body {font-size:16px;}
       <p><b>Abstract:</b>  Schnirelmann density, Mann’s theorem, Waring’s problem.</p>
       <a href="2023-sd.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
+
     <div class="lectures">
       <h6><b> Selberg’s sieve and its applicationsm</b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Haydar-Goeral" target="_blank">Haydar Göral</a> </b> - İzmir Institute of Technology</p>
       <p><b>Abstract:</b> Basic sieve methods, Selberg’s sieve, twin primes, Brun-Titchmarsh theorem.</p>
       <a href="2023-hg.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
+
     <div class="lectures">
       <h6><b> Fourier Transform and Number Theory </b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Ahmet-Batal" target="_blank">Ahmet Batal</a> </b> - İzmir Institute of Technology</p>
       <p><b>Abstract:</b> Fourier transform and its properties, some additive combinatorics, equidistribution. </p>
       <a href="2023-ab.pdf" target="_blank">Lecture Notes</a> by Mehmet Kaymak
     </div>
-    
+
     <div class="lectures">
       <h6><b> An Elementary Proof of the Prime Number Theorem</b></h6>
       <p> <b>  <a href="https://www.researchgate.net/profile/Doga-Sertbas-2" target="_blank">Doğa Can Sertbaş</a>  </b> - İstinye University </p>
@@ -443,8 +465,7 @@ body {font-size:16px;}
     </div>
   </div>
 
-
-
+  <!-- 2020 -->
 
   <div class="w3-container years" style="margin-top:80px" id="2020">
     <h1 class="w3-xxxlarge"><b>2020</b></h1>
@@ -457,14 +478,14 @@ body {font-size:16px;}
       <p> <b>  <a href="https://www.researchgate.net/profile/Sermin-Cam-Celik" target="_blank"> Şermin Çam Çelik </a>  </b> - Özyeğin University </p>
       <p><b>Abstract:</b>  Some graph theory, Szemeredi regularity lemma, triangle removal lemma, Roth’s theorem via graph theory </p>
     </div>
-    
-    
+
+
     <div class="lectures">
       <h6><b> Additive Combinatorics via Ergodic Theory </b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Selcuk-Demir-6" target="_blank">Selçuk Demir</a> </b> - Dokuz Eylül University</p>
       <p><b>Abstract:</b>   Topological dynamics and Poincare recurrence, Furstenberg correspondence, proof of Roth’s theorem via ergodic methods.</p>
     </div>
-    
+
     <div class="lectures">
       <h6><b> Fourier Analysis and Additive Combinatorics</b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Haydar-Goeral" target="_blank">Haydar Göral</a> </b> - Dokuz Eylül University</p>
@@ -477,39 +498,34 @@ body {font-size:16px;}
 
   </div>
 
+  <!-- 2019 -->
+
   <div class="w3-container years" style="margin-top:80px" id="2019">
     <h1 class="w3-xxxlarge"><b>2019</b></h1>
     <hr style="width:50px;border:5px solid" class="w3-round">
-    
+
       <p>Distribution of primes and arithmetic progressions play a fundamental role in arithmetic. The aim of Arithmetic Winter School is to give an introduction to arithmetic combinatorics and multiplicative number theory using tools from analysis and complex calculus. The necessary background on Dirichlet series and tools from additive number theory will be discussed in le7ctures. van der Waerden theorem will be proved. Then, we will give a sketch of the proof of Szémeredi’s theorem, and we will prove the prime number theorem and the functional equation of the Riemann zeta function. </p>
     <a href="https://nesinkoyleri.org/events/2019-aritmetik-kis-okulu/" target="_blank">Click for the program webpage in NMK website.</a>
         <br><br>
-        
-        
+
+
     <div class="lectures">
       <h6><b> Around the Szémeredi theorem</b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Selcuk-Demir-6" target="_blank">Selçuk Demir</a> </b> - Dokuz Eylül University</p>
-      <p><b>Abstract:</b>   1. Van der Waerden theorem
-2. Topological Dynamics and Poincare recurrence
-3. Multiple Recurrence and Furstenberg Correspondence
-4. Sketch of the proof of the Szemeredi theorem</p>
+      <p><b>Abstract:</b>   1. Van der Waerden theorem 2. Topological Dynamics and Poincare recurrence 3. Multiple Recurrence and Furstenberg Correspondence 4. Sketch of the proof of the Szemeredi theorem</p>
     </div>
-    
+
     <div class="lectures">
       <h6><b> Prime Number Theory</b></h6>
       <p> <b> <a href="https://www.researchgate.net/profile/Haydar-Goeral" target="_blank">Haydar Göral</a> </b> - Dokuz Eylül University</p>
       <p><b>Abstract:</b>  The Riemann zeta function and its analytic properties, zero-free region for the Riemann zeta function, fundamental formula, proof of the prime number theorem, explicit formulas.</p>
     </div>
-    
+
     <div class="lectures">
       <h6><b> Dirichlet Series</b></h6>
       <p> <b>  <a href="https://www.researchgate.net/profile/Sermin-Cam-Celik" target="_blank"> Şermin Çam Çelik </a>  </b> - Özyeğin University </p>
-      <p><b>Abstract:</b> Dirichlet series, their algebraic and analytic properties, functional equation of the Riemann zeta function, Riemann’s memoir.
-
-</p>
+      <p><b>Abstract:</b> Dirichlet series, their algebraic and analytic properties, functional equation of the Riemann zeta function, Riemann’s memoir.</p>
     </div>
-    
-  
   </div>
 
   <!-- Modal for full-size image -->
@@ -519,13 +535,15 @@ body {font-size:16px;}
       <button class="nav-btn nav-prev" onclick="event.stopPropagation(); showPrev()">‹</button>
       <button class="nav-btn nav-next" onclick="event.stopPropagation(); showNext()">›</button>
 
+
       <img id="img01" class="w3-image">
       <p id="caption"></p>
     </div>
   </div>
 
-<!-- End page content -->
 </div>
+
+<!-- End page content -->
 
 <!-- W3.CSS Container -->
 <div class="w3-light-grey w3-container w3-padding-32"
@@ -559,7 +577,7 @@ function onClick(element) {
   currentIndex = Math.max(0, currentList.indexOf(element));
 
   showCurrent();
-  document.getElementById("modal01").style.display = "block";
+  document.getElementById("modal01").style.display = "flex";
 }
 
 function showCurrent(){
@@ -587,7 +605,7 @@ function showNext(){
 // Keyboard navigation
 document.addEventListener("keydown", function(e){
   const modal = document.getElementById("modal01");
-  if (modal.style.display !== "block") return;
+  if (getComputedStyle(modal).display === "none") return;
 
   if (e.key === "ArrowLeft") showPrev();
   if (e.key === "ArrowRight") showNext();
@@ -621,4 +639,3 @@ document.addEventListener("keydown", function(e){
 
 </body>
 </html>
-
